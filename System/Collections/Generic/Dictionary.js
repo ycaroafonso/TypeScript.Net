@@ -1,19 +1,23 @@
-﻿var System;
+var System;
 (function (System) {
     (function (Collections) {
         (function (Generic) {
             var Dictionary = (function () {
                 function Dictionary() {
-                    this._list = [];
+                    this._list = new Array();
                 }
                 Dictionary.prototype.Count = function () {
-                    return this._list.length;
+                    var qtde = 0;
+                    this._list.forEach(function (val, index, theArray) {
+                        qtde++;
+                    });
+                    return qtde;
                 };
 
                 Dictionary.prototype.Add = function (key, value) {
-                    if (!this.ContainsKey(key))
-                        this._list.push({ "key": key, "value": value });
-else
+                    if (!this.ContainsKey(key)) {
+                        this._list.push({ Key: key, Value: value });
+                    } else
                         throw "An item with the same key has already been added.";
                 };
 
@@ -21,36 +25,63 @@ else
                     this._list = [];
                 };
                 Dictionary.prototype.ContainsKey = function (key) {
-                    var ret = false;
-                    this._list.forEach(function (val, index, theArray) {
-                        if (val.key == key) {
-                            ret = true;
-                        }
-                    });
-                    return ret;
+                    return this.GetByKey(key) != null;
                 };
                 Dictionary.prototype.ContainsValue = function (value) {
                     var ret = false;
                     this._list.forEach(function (val, index, theArray) {
-                        if (val.value == value) {
+                        if (val.Value == value)
                             ret = true;
-                        }
+                    });
+
+                    return ret;
+                };
+
+                Dictionary.prototype.Remove = function (key) {
+                    if (this.ContainsKey(key)) {
+                        this._list.splice(this.GetIndexByKey(key), 1);
+                        return true;
+                    }
+                    return false;
+                };
+
+                Dictionary.prototype.GetByKey = function (key) {
+                    var ret = null;
+                    this._list.forEach(function (val, index, theArray) {
+                        if (val.Key == key)
+                            ret = val.Value;
+                    });
+                    return ret;
+                };
+                Dictionary.prototype.GetByIndex = function (index) {
+                    var ret = null;
+                    this._list.forEach(function (val, i, theArray) {
+                        if (i == index)
+                            ret = val.Value;
+                    });
+                    return ret;
+                };
+                Dictionary.prototype.ToArray = function () {
+                    return this._list;
+                };
+
+                Dictionary.prototype.GetIndexByKey = function (key) {
+                    var ret = -1;
+                    this._list.forEach(function (val, index, theArray) {
+                        if (val.Key == key)
+                            ret = index;
                     });
                     return ret;
                 };
 
-                Dictionary.prototype.GetByKey = function (key) {
-                    this._list.forEach(function (val, index, theArray) {
-                        if (val.key == key)
-                            return val;
+                Dictionary.ToDictionary = function (arr, key, value) {
+                    if (typeof key === "undefined") { key = 0; }
+                    if (typeof value === "undefined") { value = 1; }
+                    var ret = new System.Collections.Generic.Dictionary();
+                    arr.forEach(function (val, index, theArray) {
+                        ret.Add(val[key], val[value]);
                     });
-                    return null;
-                };
-                Dictionary.prototype.GetByIndex = function (index) {
-                    return this._list[index];
-                };
-                Dictionary.prototype.GetAll = function () {
-                    return this._list;
+                    return ret;
                 };
                 return Dictionary;
             })();

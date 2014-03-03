@@ -1,8 +1,3 @@
-/// <reference path="MathTs.ts" />
-require.config({
-    baseUrl: 'TypeScript.Net/'
-});
-
 var System;
 (function (System) {
     var Random = (function () {
@@ -17,3 +12,4 @@ var System;
     })();
     System.Random = Random;
 })(System || (System = {}));
+//# sourceMappingURL=Random.js.map

@@ -1,6 +1,13 @@
-module System {
+interface IMath {
+    Floor(d: number): number;
 
-    export class MathTs {
+    Pow(x: number, y: number): number;
+
+    Round(d: number, decimals: number): number;
+}
+
+module System {
+    export class MathTs implements IMath {
         constructor() { }
 
         public static Floor(d: number): number {
@@ -16,10 +23,9 @@ module System {
         public static Round(d: number, decimals: number): number {
             var pow10: number = this.Pow(10, decimals);
             var a: number = (d * pow10) | 0;
-            if (parseInt((d + "").substr((d + "").indexOf(".")).replace(".", "").substr(decimals)) >= 5)
+            if (parseInt((d + "").substr((d + "").indexOf(".")).replace(".", "").substr(decimals, 1)) >= 5)
                 a += 1;
             return a / pow10
         }
-
     }
 }

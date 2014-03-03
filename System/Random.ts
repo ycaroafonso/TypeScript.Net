@@ -1,8 +1,3 @@
-/// <reference path="MathTs.ts" />
-require.config({
-    baseUrl: 'TypeScript.Net/',
-});
-
 module System {
     export class Random {
         constructor() { }

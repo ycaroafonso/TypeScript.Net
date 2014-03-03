@@ -4,7 +4,7 @@
         (function (Generic) {
             var List = (function () {
                 function List() {
-                    this._list = [];
+                    this._list = new Array();
                 }
                 List.prototype.Count = function () {
                     return this._list.length;
@@ -15,11 +15,15 @@
                 };
 
                 List.prototype.Clear = function () {
-                    this._list = [];
+                    this._list = new Array();
                 };
 
                 List.prototype.Get = function (index) {
                     return this._list[index];
+                };
+
+                List.prototype.ToArray = function () {
+                    return this._list;
                 };
                 return List;
             })();
@@ -29,3 +33,4 @@
     })(System.Collections || (System.Collections = {}));
     var Collections = System.Collections;
 })(System || (System = {}));
+//# sourceMappingURL=List.js.map

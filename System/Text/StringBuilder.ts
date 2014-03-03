@@ -19,8 +19,8 @@ module System.Text {
         }
 
         public AppendLine(value: string): StringBuilder {
-            this.Append(value);
             this.Append("\n");
+            this.Append(value);
             return this;
         }
 

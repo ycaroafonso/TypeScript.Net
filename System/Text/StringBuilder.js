@@ -11,8 +11,8 @@ var System;
             };
 
             StringBuilder.prototype.AppendLine = function (value) {
-                this.Append(value);
                 this.Append("\n");
+                this.Append(value);
                 return this;
             };
 

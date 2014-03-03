@@ -1,5 +1,5 @@
 ﻿interface IConvert {
-    ToInt32(value: string): number;
+    ToInt32(value: any): number;
 
     ToBoolean(value: string): boolean;
 
@@ -10,23 +10,44 @@ module System {
     export class Convert implements IConvert {
         constructor() { }
 
-        public static ToInt32(value: string): number {
-            return parseInt(value);
+        public static ToInt32(value: any): number {
+            try {
+                return parseInt(value);
+            } catch (e) {
+                throw "Error static(value: string): number";
+            }
         }
 
         public static ToBoolean(value: string): boolean {
-            return (value == "true" && value != "" && value != null);
+            try {
+                switch (value) {
+                    case "true":
+                    case "1":
+                        return true;
+                    case "false":
+                    case "0":
+                    case "":
+                    case null:
+                        return false;
+                }
+            } catch (e) {
+                throw "Error ToBoolean(value: string): boolean";
+            }
         }
 
         public static ToDecimal(value: string): number {
-            if (typeof value == "string") {
-                // (se tiver . e a , for depois do .)
-                //  || (se não tiver . e tiver ,)
-                if ((value.indexOf(".") > -1 && value.indexOf(",") > value.indexOf("."))
-                    || (value.indexOf(".") == -1 && value.indexOf(",") > -1))
-                    value = value.replace(/\./gi, "").replace(",", ".");
+            try {
+                if (typeof value == "string") {
+                    // (se tiver . e a , for depois do .)
+                    //  || (se não tiver . e tiver ,)
+                    if ((value.indexOf(".") > -1 && value.indexOf(",") > value.indexOf("."))
+                        || (value.indexOf(".") == -1 && value.indexOf(",") > -1))
+                        value = value.replace(/\./gi, "").replace(",", ".");
+                }
+                return parseFloat(value);
+            } catch (e) {
+                throw "Error ToDecimal(value: string): number";
             }
-            return parseFloat(value);
         }
     }
 }

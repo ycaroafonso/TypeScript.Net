@@ -1,8 +1,3 @@
-/// <reference path="../../typings/requirejs/require.d.ts" />
-require.config({
-    baseUrl: 'TypeScript.Net/',
-});
-
 interface IDateTime {
     Day(): number;
     Hour(): number;
@@ -30,20 +25,20 @@ interface IDateTime {
 
 module System {
     export class DateTime implements IDateTime {
-        _date: any;
+        private _date: any;
 
         constructor(year: number = null, month: number = null, day: number = null, hour: number = 0, minute: number = 0, second: number = 0, millisecond: number = 0) {
             if (year == null && month == null && day == null)
                 this._date = new Date();
             else
-                this._date = new Date(year, month, day, hour, minute, second, millisecond);
+                this._date = new Date(year, month - 1, day, hour, minute, second, millisecond);
         }
 
         public Day(): number {
             return this._date.getDate();
         }
         public Hour(): number {
-            return this._date.getDate();
+            return this._date.getHours();
         }
         public Millisecond(): number {
             return this._date.getMilliseconds();
@@ -95,16 +90,13 @@ module System {
 
         public static DaysInMonth(year: number, month: number): number {
             var d = new Date(year, month - 1, 1);
-            var year: number = d.getFullYear() + (d.getMonth() == 12 ? 1 : 0);
-            var month: number = d.getMonth() == 12 ? 0 : d.getMonth() + 1;
+            year = d.getFullYear() + (d.getMonth() == 12 ? 1 : 0);
+            month = d.getMonth() == 12 ? 0 : d.getMonth() + 1;
             return new Date(year, month, 0).getDate();
         }
 
         public ToString(format: string = "dd/M/y hh:mm:ss S"): string {
-            var q: number;
-            require(["System/Math"], () => {
-                q = System.MathTs.Floor((this._date.getMonth() + 3) / 3);
-            });
+            var q: number = Math.floor((this._date.getMonth() + 3) / 3);
 
             var o = {
                 "y+": this.Year(),

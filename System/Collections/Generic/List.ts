@@ -5,16 +5,18 @@
 
     Clear(): void;
 
-
-
     Get(index: number): T;
+
+    ToArray(): Array;
 }
 
 module System.Collections.Generic {
     export class List<T> implements IList<T> {
-        _list = [];
+        private _list: Array;
 
-        constructor() { }
+        constructor() {
+            this._list = new Array();
+        }
 
         Count(): number {
             return this._list.length;
@@ -25,14 +27,17 @@ module System.Collections.Generic {
         }
 
         Clear(): void {
-            this._list = [];
+            this._list = new Array();
         }
-
 
 
 
         Get(index: number): T {
             return this._list[index];
+        }
+
+        ToArray(): Array {
+            return this._list;
         }
     }
 }

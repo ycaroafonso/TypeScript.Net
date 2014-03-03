@@ -17,7 +17,7 @@ var System;
         MathTs.Round = function (d, decimals) {
             var pow10 = this.Pow(10, decimals);
             var a = (d * pow10) | 0;
-            if (parseInt((d + "").substr((d + "").indexOf(".")).replace(".", "").substr(decimals)) >= 5)
+            if (parseInt((d + "").substr((d + "").indexOf(".")).replace(".", "").substr(decimals, 1)) >= 5)
                 a += 1;
             return a / pow10;
         };

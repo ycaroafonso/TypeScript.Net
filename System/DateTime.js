@@ -1,8 +1,3 @@
-/// <reference path="../../typings/requirejs/require.d.ts" />
-require.config({
-    baseUrl: 'TypeScript.Net/'
-});
-
 var System;
 (function (System) {
     var DateTime = (function () {
@@ -17,13 +12,13 @@ var System;
             if (year == null && month == null && day == null)
                 this._date = new Date();
 else
-                this._date = new Date(year, month, day, hour, minute, second, millisecond);
+                this._date = new Date(year, month - 1, day, hour, minute, second, millisecond);
         }
         DateTime.prototype.Day = function () {
             return this._date.getDate();
         };
         DateTime.prototype.Hour = function () {
-            return this._date.getDate();
+            return this._date.getHours();
         };
         DateTime.prototype.Millisecond = function () {
             return this._date.getMilliseconds();
@@ -74,18 +69,14 @@ else
 
         DateTime.DaysInMonth = function (year, month) {
             var d = new Date(year, month - 1, 1);
-            var year = d.getFullYear() + (d.getMonth() == 12 ? 1 : 0);
-            var month = d.getMonth() == 12 ? 0 : d.getMonth() + 1;
+            year = d.getFullYear() + (d.getMonth() == 12 ? 1 : 0);
+            month = d.getMonth() == 12 ? 0 : d.getMonth() + 1;
             return new Date(year, month, 0).getDate();
         };
 
         DateTime.prototype.ToString = function (format) {
             if (typeof format === "undefined") { format = "dd/M/y hh:mm:ss S"; }
-            var _this = this;
-            var q;
-            require(["System/Math"], function () {
-                q = System.MathTs.Floor((_this._date.getMonth() + 3) / 3);
-            });
+            var q = Math.floor((this._date.getMonth() + 3) / 3);
 
             var o = {
                 "y+": this.Year(),
@@ -107,3 +98,4 @@ else
     })();
     System.DateTime = DateTime;
 })(System || (System = {}));
+//# sourceMappingURL=DateTime.js.map
