@@ -1,4 +1,4 @@
-var System;
+﻿var System;
 (function (System) {
     var DateTime = (function () {
         function DateTime(year, month, day, hour, minute, second, millisecond) {

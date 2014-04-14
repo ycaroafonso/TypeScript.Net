@@ -31,7 +31,7 @@ export class Main {
 
         var cor: ICo = new Im.Co();
         cor.setLogo(h.match(/<img src=\"redim_logo.htm\?image=stored\/corretores\/([0-9\_]+).jpg/i)[1]);
-        var dadosCorretor = h.match(/<font class="t_orange"><b>([^<]*)<\/b><\/font><br><font class="t_marrom">\n\t+Corretor\(a\) de Imóveis<br>\n\t+CRECI: (\d+)<br><img src="images\/transp.gif" alt="" border="0" height="5" width="1"><br>\n\t+([^<]*)<br><img src="images\/transp.gif" alt="" border="0" height="5" width="1"><br>\n\t+<img src="images\/img_fig_fone.gif" alt="" align="absmiddle" border="0"><img src="images\/transp.gif" alt="" border="0" height="1" width="5"><b>([^<]*)<\/b><\/font><\/td>/i);
+        var dadosCorretor = h.match(/<font class="t_orange"><b>([^<]*)<\/b><\/font><br><font class="t_marrom">\n\t+Corretor\(a\) de ImÃ³veis<br>\n\t+CRECI: (\d+)<br><img src="images\/transp.gif" alt="" border="0" height="5" width="1"><br>\n\t+([^<]*)<br><img src="images\/transp.gif" alt="" border="0" height="5" width="1"><br>\n\t+<img src="images\/img_fig_fone.gif" alt="" align="absmiddle" border="0"><img src="images\/transp.gif" alt="" border="0" height="1" width="5"><b>([^<]*)<\/b><\/font><\/td>/i);
         cor.setNome(dadosCorretor[1]);
         cor.setCreci(System.Convert.ToInt32(dadosCorretor[2]));
         cor.setEndereco(dadosCorretor[3]);
@@ -42,9 +42,9 @@ export class Main {
         imo.setTipo(h.match(/Tipo:<\/td>\n\t+<td class="t_marrom" colspan="3">([^<]*)<\/td>/i)[1]);
         imo.setCidade(h.match(/Cidade:<\/td>\n\t+<td class="t_marrom" colspan="3">([^<]*)<\/td>/i)[1]);
         imo.setBairro(h.match(/Bairro:<\/td>\n\t+<td class="t_marrom" colspan="3">([^<]*)<\/td>/i)[1]);
-        imo.setEndereco(h.match(/Endereço:<\/td>\n\t+<td class="t_marrom" colspan="3" valign="top">([^<]*)/i)[1]);
-        imo.setAreaTotal(h.match(/Área total:<\/td><td class="t_marrom">([^<]*)/i)[1]);
-        imo.setAreaConstruida(h.match(/Área construída:<\/td><td class="t_marrom" valign="bottom">([^<]*)/i)[1]);
+        imo.setEndereco(h.match(/EndereÃ§o:<\/td>\n\t+<td class="t_marrom" colspan="3" valign="top">([^<]*)/i)[1]);
+        imo.setAreaTotal(h.match(/Ãrea total:<\/td><td class="t_marrom">([^<]*)/i)[1]);
+        imo.setAreaConstruida(h.match(/Ãrea construÃ­da:<\/td><td class="t_marrom" valign="bottom">([^<]*)/i)[1]);
         imo.setValorTotal(h.match(/Valor total: <b>R$ ([\d\.\,^<]+)/i)[1]);
 
 

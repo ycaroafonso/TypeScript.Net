@@ -7,12 +7,12 @@
 
     Get(index: number): T;
 
-    ToArray(): Array;
+    ToArray(): Array<T>;
 }
 
 module System.Collections.Generic {
     export class List<T> implements IList<T> {
-        private _list: Array;
+        private _list: Array<T>;
 
         constructor() {
             this._list = new Array();

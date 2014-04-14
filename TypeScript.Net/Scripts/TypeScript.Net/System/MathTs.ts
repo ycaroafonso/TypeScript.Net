@@ -1,9 +1,9 @@
 interface IMath {
-    Floor(d: number): number;
+    //Floor(d: number): number;
 
-    Pow(x: number, y: number): number;
+    //Pow(x: number, y: number): number;
 
-    Round(d: number, decimals: number): number;
+    //Round(d: number, decimals: number): number;
 }
 
 module System {

@@ -1,4 +1,4 @@
-///#source 1 1 /Scripts/TypeScript.Net/Custom/Array.js
+﻿///#source 1 1 /Scripts/TypeScript.Net/Custom/Array.js
 /// <reference path="../System/Collections/Generic/Dictionary.ts" />
 
 Array.prototype.ToList = function () {
@@ -15,19 +15,19 @@ var Custom;
     var DateDiff = (function () {
         function DateDiff() {
         }
-        DateDiff.prototype.inDays = function (d1, d2) {
+        DateDiff.prototype.InDays = function (d1, d2) {
             var t2 = d2.getTime();
             var t1 = d1.getTime();
             return (t2 - t1) / (24 * 3600 * 1000);
         };
 
-        DateDiff.prototype.inWeeks = function (d1, d2) {
+        DateDiff.prototype.InWeeks = function (d1, d2) {
             var t2 = d2.getTime();
             var t1 = d1.getTime();
             return (t2 - t1) / (24 * 3600 * 1000 * 7);
         };
 
-        DateDiff.prototype.inMonths = function (d1, d2) {
+        DateDiff.prototype.InMonths = function (d1, d2) {
             var d1Y = d1.getFullYear();
             var d2Y = d2.getFullYear();
             var d1M = d1.getMonth();
@@ -35,7 +35,7 @@ var Custom;
             return (d2M + 12 * d2Y) - (d1M + 12 * d1Y);
         };
 
-        DateDiff.prototype.inYears = function (d1, d2) {
+        DateDiff.prototype.InYears = function (d1, d2) {
             return d2.getFullYear() - d1.getFullYear();
         };
         return DateDiff;
@@ -95,20 +95,6 @@ Number.prototype.ToRound = function (digits) {
         return this;
     var pow10 = Math.pow(10, digits);
     return Math.round(this * pow10) / pow10;
-};
-
-Number.prototype.ToString = function () {
-    var val = this == "" || this == null ? parseFloat(0) : this;
-    val = val.toFixed(2);
-    val = val.replace(".", ",");
-    return val;
-};
-
-Number.prototype.ToMoney = function () {
-    var val = this == "" || this == null ? parseFloat(0) : this;
-    val = val.toFixed(2);
-    val = val.replace(".", ",");
-    return val;
 };
 //# sourceMappingURL=Number.js.map
 
@@ -248,7 +234,7 @@ String.prototype.ToInt32 = function () {
 };
 
 String.prototype.IsNullOrEmpty = function () {
-    return this == null || this.length == 0;
+    return this == null || this == "";
 };
 
 String.prototype.PadLeft = function (n, pad) {

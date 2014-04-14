@@ -1,9 +1,11 @@
 ﻿interface IConvert {
+    /*
     ToInt32(value: any): number;
 
     ToBoolean(value: string): boolean;
 
     ToDecimal(value: string): number;
+*/
 }
 
 module System {

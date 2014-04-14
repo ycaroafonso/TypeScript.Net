@@ -5,14 +5,17 @@ var Custom;
         function Mask(input) {
             this._input = input.toString();
         }
-        // #region Get's e Set's
-        Mask.prototype.setInput = function (input) {
-            this._input = input;
-        };
-
-        Mask.prototype.getInput = function () {
-            return this._input;
-        };
+        Object.defineProperty(Mask.prototype, "Input", {
+            // #region Get's e Set's
+            get: function () {
+                return this._input;
+            },
+            set: function (input) {
+                this._input = input;
+            },
+            enumerable: true,
+            configurable: true
+        });
 
         // #endregion
         Mask.prototype.AddMask = function (mask) {

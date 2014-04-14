@@ -4,11 +4,12 @@ interface IDateTime {
     Millisecond(): number;
     Minute(): number;
     Month(): number;
-    Now(): IDateTime;
+    //Now(): IDateTime;
     Second(): number;
 
     Year(): number;
 
+    /*
     AddDays(value: number): IDateTime;
     AddHours(value: number): IDateTime;
 
@@ -19,7 +20,7 @@ interface IDateTime {
     AddYears(value: number): IDateTime;
 
     DaysInMonth(year: number, month: number): number;
-
+    */
     ToString(format: string): string;
 }
 

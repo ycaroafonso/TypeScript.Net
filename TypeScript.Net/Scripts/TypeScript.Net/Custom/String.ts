@@ -17,6 +17,7 @@ interface String {
     ClearMask(): string;
 }
 
+
 String.prototype.ToMask = function (mascara): string {
     var x = 1;
     var rp = mascara.replace(/(\w)/gi, function (match, contents, offset, s) { return "$" + x++; });
@@ -41,7 +42,7 @@ String.prototype.ToInt32 = function (): number {
 
 
 String.prototype.IsNullOrEmpty = function (): boolean {
-    return this == null || this.length == 0;
+    return this == null || this == "";
 };
 
 

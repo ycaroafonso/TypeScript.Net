@@ -14,7 +14,7 @@
     ToArray(): any;
 
     GetIndexByKey(key: TKey): number;
-    ToDictionary<TKey, TValue>(arr: any, key: number, value: number): IDictionary<TKey, TValue>;
+    //ToDictionary<TKey, TValue>(arr: any, key: number, value: number): IDictionary<TKey, TValue>;
 }
 
 module System.Collections.Generic {
@@ -97,7 +97,7 @@ module System.Collections.Generic {
         }
 
         public static ToDictionary<TKey, TValue>(arr: any, key: number = 0, value: number = 1): IDictionary<TKey, TValue> {
-            var ret = new System.Collections.Generic.Dictionary();
+            var ret = new System.Collections.Generic.Dictionary<TKey, TValue>();
             arr.forEach(function (val, index, theArray) {
                 ret.Add(val[key], val[value]);
             });

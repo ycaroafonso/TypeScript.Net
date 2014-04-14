@@ -1,4 +1,4 @@
-﻿String.prototype.ToMask = function (mascara) {
+String.prototype.ToMask = function (mascara) {
     var x = 1;
     var rp = mascara.replace(/(\w)/gi, function (match, contents, offset, s) {
         return "$" + x++;
@@ -20,7 +20,7 @@ String.prototype.ToInt32 = function () {
 };
 
 String.prototype.IsNullOrEmpty = function () {
-    return this == null || this.length == 0;
+    return this == null || this == "";
 };
 
 String.prototype.PadLeft = function (n, pad) {

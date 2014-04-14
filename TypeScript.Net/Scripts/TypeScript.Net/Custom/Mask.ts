@@ -1,8 +1,5 @@
 // Interface
 interface IMask {
-    setInput(input: string): void;
-    getInput(): string;
-
     AddMask(mask: string): IMask;
     ToString(): string;
 }
@@ -18,13 +15,13 @@ module Custom {
 
         // #region Get's e Set's
 
-        public setInput(input: string): void {
+        public get Input(): string {
+            return this._input;
+        }
+        public set Input(input: string) {
             this._input = input;
         }
 
-        public getInput(): string {
-            return this._input;
-        }
 
         // #endregion
 
