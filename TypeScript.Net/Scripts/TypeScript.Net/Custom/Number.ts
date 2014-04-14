@@ -1,6 +1,8 @@
 interface Number {
     ToRound(digits: number): number;
     ToString(): string;
+
+    ToMoney(): string;
 }
 Number.prototype.ToRound = function (digits: number) {
     if (digits < 0 || digits > 10)
@@ -11,6 +13,13 @@ Number.prototype.ToRound = function (digits: number) {
 
 
 Number.prototype.ToString = function (): string {
+    var val = this == "" || this == null ? parseFloat(0) : this;
+    val = val.toFixed(2);
+    val = val.replace(".", ",");
+    return val;
+}
+
+Number.prototype.ToMoney = function (): string {
     var val = this == "" || this == null ? parseFloat(0) : this;
     val = val.toFixed(2);
     val = val.replace(".", ",");

@@ -1,4 +1,4 @@
-﻿var System;
+var System;
 (function (System) {
     var MathTs = (function () {
         function MathTs() {

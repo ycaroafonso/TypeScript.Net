@@ -1,4 +1,6 @@
-﻿///#source 1 1 /Scripts/TypeScript.Net/Custom/Array.js
+///#source 1 1 /Scripts/TypeScript.Net/Custom/Array.js
+/// <reference path="../System/Collections/Generic/Dictionary.ts" />
+
 Array.prototype.ToList = function () {
     var ret = new System.Collections.Generic.List();
     for (var i = 0; i < this.length; i++)
@@ -43,6 +45,7 @@ var Custom;
 //# sourceMappingURL=DateDiff.js.map
 
 ///#source 1 1 /Scripts/TypeScript.Net/Custom/Mask.js
+
 var Custom;
 (function (Custom) {
     var Mask = (function () {
@@ -92,6 +95,20 @@ Number.prototype.ToRound = function (digits) {
         return this;
     var pow10 = Math.pow(10, digits);
     return Math.round(this * pow10) / pow10;
+};
+
+Number.prototype.ToString = function () {
+    var val = this == "" || this == null ? parseFloat(0) : this;
+    val = val.toFixed(2);
+    val = val.replace(".", ",");
+    return val;
+};
+
+Number.prototype.ToMoney = function () {
+    var val = this == "" || this == null ? parseFloat(0) : this;
+    val = val.toFixed(2);
+    val = val.replace(".", ",");
+    return val;
 };
 //# sourceMappingURL=Number.js.map
 
@@ -475,6 +492,8 @@ var System;
         Convert.ToDecimal = function (value) {
             try  {
                 if (typeof value == "string") {
+                    // (se tiver . e a , for depois do .)
+                    //  || (se não tiver . e tiver ,)
                     if ((value.indexOf(".") > -1 && value.indexOf(",") > value.indexOf(".")) || (value.indexOf(".") == -1 && value.indexOf(",") > -1))
                         value = value.replace(/\./gi, "").replace(",", ".");
                 }
@@ -503,7 +522,7 @@ var System;
             if (typeof millisecond === "undefined") { millisecond = 0; }
             if (year == null && month == null && day == null)
                 this._date = new Date();
-else
+            else
                 this._date = new Date(year, month - 1, day, hour, minute, second, millisecond);
         }
         DateTime.prototype.Day = function () {

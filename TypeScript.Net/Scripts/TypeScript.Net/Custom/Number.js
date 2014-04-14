@@ -11,4 +11,11 @@ Number.prototype.ToString = function () {
     val = val.replace(".", ",");
     return val;
 };
+
+Number.prototype.ToMoney = function () {
+    var val = this == "" || this == null ? parseFloat(0) : this;
+    val = val.toFixed(2);
+    val = val.replace(".", ",");
+    return val;
+};
 //# sourceMappingURL=Number.js.map

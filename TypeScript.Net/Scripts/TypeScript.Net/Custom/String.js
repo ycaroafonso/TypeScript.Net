@@ -1,4 +1,4 @@
-String.prototype.ToMask = function (mascara) {
+﻿String.prototype.ToMask = function (mascara) {
     var x = 1;
     var rp = mascara.replace(/(\w)/gi, function (match, contents, offset, s) {
         return "$" + x++;
