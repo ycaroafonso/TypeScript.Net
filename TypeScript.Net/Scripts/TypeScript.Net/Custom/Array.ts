@@ -1,5 +1,5 @@
 /// <reference path="../System/Collections/Generic/Dictionary.ts" />
-//Teste
+
 export interface Array {
     ToList(): System.Collections.Generic.List<any>;
 }

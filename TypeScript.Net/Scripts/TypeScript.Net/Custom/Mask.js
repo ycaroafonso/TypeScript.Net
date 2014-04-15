@@ -1,4 +1,4 @@
-
+﻿
 var Custom;
 (function (Custom) {
     var Mask = (function () {
