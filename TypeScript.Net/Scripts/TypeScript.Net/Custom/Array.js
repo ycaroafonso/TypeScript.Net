@@ -1,5 +1,5 @@
-/// <reference path="../System/Collections/Generic/Dictionary.ts" />
 define(["require", "exports"], function(require, exports) {
+    /// <reference path="../System/Collections/Generic/Dictionary.ts" />
     
     Array.prototype.ToList = function () {
         var ret = new System.Collections.Generic.List();
