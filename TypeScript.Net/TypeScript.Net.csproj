@@ -57,6 +57,7 @@
     <TypeScriptCompile Include="Scripts\TypeScript.Net\System\Web\Mvc\SelectList.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript.Net\System\Web\Mvc\SelectListItem.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript.Net\System\Web\Mvc\Html.ts" />
+    <Content Include="Scripts\TypeScript.Net\Custom\Object.ts" />
     <Content Include="Scripts\TypeScript.Net\TypeScript.Net.js">
       <DependentUpon>TypeScript.Net.js.bundle</DependentUpon>
     </Content>
