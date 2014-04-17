@@ -22,8 +22,8 @@ module Custom {
             this._input = input;
         }
 
-
         // #endregion
+
 
         public AddMask(mask: string): Mask {
             this._masks.push(mask);
