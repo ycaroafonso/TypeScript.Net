@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="http://cdn.localhost/Scripts/qunit/qunit.css" rel="stylesheet" />
+    <script src="http://cdn.localhost/Scripts/qunit/qunit.js"></script>
+
+    <link href="http://cdn.localhost/Scripts/qunit/composite/qunit-composite.css" rel="stylesheet" />
+    <script src="http://cdn.localhost/Scripts/qunit/composite/qunit-composite.js"></script>
+
+    <script>
+        QUnit.testSuites([
+			{ name: "System.Collections.Generic.Dictionary", path: "System.Collections.Generic.Dictionary/index.html" },
+			{ name: "System.Collections.Generic.List", path: "System.Collections.Generic.List/index.html" }
+        ]);
+
+        /*
+        { name: "Quux Test Suite", path: "./quux.html" },
+        { name: "QUnit Core Test Suite", path: "../node_modules/qunitjs/test/index.html" }
+        */
+	</script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+</body>
+</html>
