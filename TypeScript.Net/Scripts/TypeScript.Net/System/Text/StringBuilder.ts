@@ -25,7 +25,11 @@ module System.Text {
         }
 
         public Clear(): StringBuilder {
+<<<<<<< HEAD
             this._retorna = [];
+=======
+            this._retorna = []
+>>>>>>> github
             return this;
         }
 

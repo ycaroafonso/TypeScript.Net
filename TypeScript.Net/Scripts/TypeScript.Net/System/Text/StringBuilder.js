@@ -1,4 +1,4 @@
-var System;
+﻿var System;
 (function (System) {
     (function (Text) {
         var StringBuilder = (function () {

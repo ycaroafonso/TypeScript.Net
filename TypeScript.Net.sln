@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeScript.Net", "TypeScript.Net\TypeScript.Net.csproj", "{E04DD357-F941-4FDE-A5A9-D0BB04BD11FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{0F34C530-73CD-4E80-BBA6-F3638DDAEEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{E04DD357-F941-4FDE-A5A9-D0BB04BD11FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E04DD357-F941-4FDE-A5A9-D0BB04BD11FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E04DD357-F941-4FDE-A5A9-D0BB04BD11FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F34C530-73CD-4E80-BBA6-F3638DDAEEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F34C530-73CD-4E80-BBA6-F3638DDAEEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F34C530-73CD-4E80-BBA6-F3638DDAEEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F34C530-73CD-4E80-BBA6-F3638DDAEEDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
